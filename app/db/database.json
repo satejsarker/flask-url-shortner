@@ -1,0 +1,26 @@
+{
+  "urls": {
+    "1": {
+      "title": "faceFn",
+      "full_url": "https://www.facebook.com/",
+      "created_at": "2020-05-10 01:45:51.903394",
+      "hit_times": [],
+      "id": "09223a87",
+      "hits": 0,
+      "short_url": "http://127.0.0.1:5000/shortener/api/09223a87"
+    },
+    "2": {
+      "full_url": "https://www.facebook.com/",
+      "created_at": "2020-05-10 01:47:56.659919",
+      "title": "facebook",
+      "hit_times": [
+        "2020-05-10 01:50:39.258688",
+        "2020-05-10 02:07:54.929824",
+        "2020-05-10 02:08:04.799635"
+      ],
+      "id": "84cfe3d4",
+      "hits": 3,
+      "short_url": "http://127.0.0.1:5000/shortener/api/84cfe3d4"
+    }
+  }
+}
