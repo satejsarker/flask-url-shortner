@@ -8,6 +8,7 @@ print(os.path.join(current_dir, 'db', 'database.json'))
 
 
 class Database:
+    """database query and import """
     def __init__(self):
         self.db = TinyDB(os.path.join(current_dir, 'db', 'database.json'))
 

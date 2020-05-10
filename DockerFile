@@ -4,8 +4,9 @@ LABEL "Maintainer"="satejall@gmail.com"
 WORKDIR /user/app
 
 COPY   ./requirements.txt ./
+COPY ./main.py ./
 RUN  pip install -r requirements.txt
 COPY  ./app ./app
-# ENTRYPOINT [ "python" ]
+ENTRYPOINT [ "python" ]
 
-CMD ["ls","-d"]
+CMD ["main.py"]

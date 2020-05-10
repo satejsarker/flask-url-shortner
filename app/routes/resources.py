@@ -1,3 +1,4 @@
+"""routing file for the microservice """
 import logging
 import uuid
 from datetime import datetime
@@ -25,6 +26,9 @@ class Shortener(CommonResource):
 
     @use_args({"title": fields.Str(required=True)}, locations=['query'])
     def get(self, args):
+        """get request : search on  partial or full match
+        :return json object with details information
+        """
         res = self.model.search_url(self.main_url_table, args['title'])
         if res is None:
             return {"msg": "search not found"}, 404
@@ -38,6 +42,7 @@ class Shortener(CommonResource):
         return UrL().dump(res,many=True), 200
 
     def _hit_cal(self, all_hits, total_hit):
+        """hit calculation helper function """
         if len(all_hits) > 1:
             start, end = all_hits[0], all_hits[-1]
             date_time_end = datetime.strptime(end, '%Y-%m-%d %H:%M:%S.%f')
@@ -51,6 +56,13 @@ class Shortener(CommonResource):
 
     @use_args(UrL)
     def post(self, args):
+        """
+            created short url object if the title is not present yet
+
+
+        :param args:
+        :return:
+        """
         data = args
         base_url = flask.request.base_url
         _info = uuid.uuid4()
@@ -65,12 +77,14 @@ class Shortener(CommonResource):
 
 @API.resource('/api/<string:id>', methods=["GET"], strict_slashes=False, endpoint="get_api_short_url")
 class ShortenerAPi(CommonResource):
+    """redirect to the full url """
     main_url_table = "urls"
     hits_table = "urls_hits"
     model = Database()
 
     @use_kwargs({"id": fields.Str(required=True)}, locations=['view_args'])
     def get(self, **kwargs):
+        """url will be redirect and calculate the hit and ratio for the short url"""
         update, res = self.model.update_url(self.main_url_table, kwargs['id'])
         if res is None:
             return {"msg": "search Url not found"}, 404
