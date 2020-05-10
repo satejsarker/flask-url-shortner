@@ -23,20 +23,19 @@ get method :
    result:
  `[
     {
-        "url": "https://www.facebook.com/",
-        "short_url": "http://127.0.0.1:5000/shortener/api/84cfe3d4",
-        "id": "84cfe3d4",
-        "hourly_hits_ratio": "10.335",
-        "created_at": "2020-05-10 01:47:56.659919",
-        "hit_times": [
-            "2020-05-10 01:50:39.258688",
-            "2020-05-10 02:07:54.929824",
-            "2020-05-10 02:08:04.799635"
-        ],
+        "short_url": "http://127.0.0.1:5000/shortener/api/f5ab248f",
+        "hourly_hits_ratio": "192.857",
+        "url": "https://www.pcworld.com/article/191812/Long_URL_Please.html",
+        "id": "f5ab248f",
+        "created_at": "2020-05-10 13:16:11.015140",
+        "title": "longUrl",
         "hits": 3,
-        "title": "facebook"
-    }
-]`   
+        "hit_times": [
+            "2020-05-10 13:16:46.417509",
+            "2020-05-10 13:17:13.196109",
+            "2020-05-10 13:17:42.861120"
+        ]
+  `   
                 
 api should return all pages which have partial or full match 
 
